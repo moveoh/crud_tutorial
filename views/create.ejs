@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>회원가입 페이지</title>
+</head>
+
+<body>
+  <form action="/create_member" method="post">
+    아이디
+    <input type="text" name="user_id" placeholder="id"><br> 비밀번호
+    <input type="password" name="user_pw" placeholder="pw"><br> 비밀번호확인
+    <input type="password" name="user_pwck" placeholder="pw check"><br> 이름
+    <input type="text" name="user_name" placeholder="name"><br> 이메일
+    <input type="email" name="user_mail" placeholder="E-mail"><br>
+    <input type="submit">
+  </form>
+
+  <!-- <script>
+    var pwchk = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{4,12}$/; //비번 체크
+
+    function addUser() {
+      // 빈칸 체크
+      // 비밀번호 길이 영어숫자 확인
+      var id = $('#user_id').val();
+      var pw = $('#user_pw').val();
+      var repw = $('#user_pwck').val();
+      var name = $('#user_name').val();
+      var mail = $('#user_mail').val();
+      if (id == '' || pw == '' || repw == '' || name == '' || mail == '') {
+        alert("모든 칸을 채워주세요");
+        return false;
+      } else {
+        // 비밀번호를 확인하러 넘어갑니다.
+        if (pwchk.test(pw) == false) {
+          alert("비번은 4~12자리 영어와 숫자, 특수문자가 모두 포함되어야 합니다");
+          pw.focus();
+          return false;
+        } else {
+          if (pw != repw) {
+            alert("비밀번호는 똑같아야 합니다 ");
+          } else {
+            $('#joinAction').submit();
+          }
+        }
+      }
+    }
+  </script> -->
+</body>
+
+</html>
