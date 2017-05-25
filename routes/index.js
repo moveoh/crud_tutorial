@@ -37,4 +37,12 @@ router.post('/create_member',function(req,res,next){
   });
 });
 
+//회원 목록(게시판의경우 글 목록)을 누를때
+router.get('/info', function(req, res, next) {
+  userInfo.find({}).sort({date:-1}).exec(function(err, rawUser) {
+    if(err) throw err;
+    res.render('info', {userInfo: rawUser});
+});
+});
+
 module.exports = router;
