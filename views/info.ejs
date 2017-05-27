@@ -16,26 +16,15 @@
         <th style="width: 200px;">메일주소</th>
         <th>가입일</th>
     </tr>
-    <%
-                    userInfo.forEach(function(user){
-                %>
+    <%userInfo.forEach(function(user){%>
         <tr>
-            <td style="width: 100px;">
-                <%=user.name%>
-            </td>
-            <td>
-                <%=user.userid%>
-            </td>
-            <td style="width: 200px;">
-                <%=user.email%>
-            </td>
-            <td style="font-size:.4em;">
-                <%=user.date%>
-            </td>
+            <td style="width: 100px;"><%=user.name%></td>
+            <td><%=user.userid%></td>
+            <td style="width: 200px;"><%=user.email%></td>
+            <td style="font-size:.4em;"><%=user.date%></td>
+            <td><a href='/delete/<%=user.id%>'>삭제하기</a></td>
         </tr>
-        <%
-                    });
-                %>
+        <%});%>
 </table>
 
 <a href="/">메인으로 가기</a>

@@ -38,11 +38,26 @@ router.post('/create_member',function(req,res,next){
 });
 
 //회원 목록(게시판의경우 글 목록)을 누를때
+
 router.get('/info', function(req, res, next) {
+  //userInfo스키마에서 find하고 sort부분은 빨리쓴글이 밑으로 가게 sort한다 예외처리를 해서 오류가나면 오류를
+  //thorow 하고 오류가 없을경우 info를 렌더링하고, info에 DB값을 보낸다.
   userInfo.find({}).sort({date:-1}).exec(function(err, rawUser) {
     if(err) throw err;
+    //res.json(rawUser);
     res.render('info', {userInfo: rawUser});
 });
 });
 
+router.get('/delete/:id',function(req,res,next){
+  //주소의 파라미터로 id를 받아와서 id라는 변수에 저장한다.
+  var id = req.params.id;
+  //findByIdAndRemove라는 함수는 id값을 받아서 바로 지운다!
+  userInfo.findByIdAndRemove(id,function(err, rawUser){
+    if(err) {
+      res.send(err);
+    }
+    res.redirect('/');
+  })
+});
 module.exports = router;
