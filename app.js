@@ -10,7 +10,7 @@ var users = require('./routes/users');
 
 var app = express();
 
-//mongoDB 연결
+//mongoDB 연결 한다 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/CRUDtest');
 
